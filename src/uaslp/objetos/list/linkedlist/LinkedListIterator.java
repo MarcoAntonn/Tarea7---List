@@ -1,11 +1,22 @@
 package uaslp.objetos.list.linkedlist;
 
 public class LinkedListIterator {
+    private Node currentNode; //Este es como el aux
+
+    //Constructor
+    public LinkedListIterator(Node startNode){
+        currentNode = startNode;
+    }
+
+    //Otros métodos
     public boolean hasNext(){
-        return false;
+        return currentNode != null;
     }
 
     public String next(){
-        return null;
+        String data = currentNode.data;
+        currentNode = currentNode.next;
+        return data;
     }
 }
+
