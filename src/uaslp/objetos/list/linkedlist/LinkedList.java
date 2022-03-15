@@ -5,15 +5,15 @@ import uaslp.objetos.list.Iterator;
 import uaslp.objetos.list.List;
 
 //Interface
-public class LinkedList <T> implements List <T> {
+public class LinkedList implements List {
 
-    private Node<T> head;
-    private Node<T> tail;
+    private Node head;
+    private Node tail;
     private int size;
 
     //Adds
-    public void addAtTail(T data) {
-        Node<T> node = new Node<>(data);//El <> es opcional, es una recomendacion del IDE, donde es necesario es en la declaración  Node<T> al inicio del renglon
+    public void addAtTail(String data) {
+        Node node = new Node(data);//El <> es opcional, es una recomendacion del IDE, donde es necesario es en la declaración  Node al inicio del renglon
 
         if (size == 0) {
             head = node;
@@ -26,8 +26,8 @@ public class LinkedList <T> implements List <T> {
         size++;
     }
 
-    public void addAtFront(T data) {
-        Node<T> node = new Node(data);
+    public void addAtFront(String data) {
+        Node node = new Node(data);
 
         if (size == 0) {
             tail = node;
@@ -42,7 +42,7 @@ public class LinkedList <T> implements List <T> {
 
     //Removes
     public void remove(int index) {
-        Node<T> node = findNode(index);
+        Node node = findNode(index);
 
         if(node == null){
             return;
@@ -75,8 +75,8 @@ public class LinkedList <T> implements List <T> {
     }
 
     //Setters
-    public void setAt(int index, T data) {
-        Node<T> node = findNode(index);
+    public void setAt(int index, String data) {
+        Node node = findNode(index);
 
         if(node != null){
             node.data = data;
@@ -84,14 +84,14 @@ public class LinkedList <T> implements List <T> {
     }
 
     //Getters
-    public T getAt(int index) {
-        Node<T> node = findNode(index);
+    public String getAt(int index) {
+        Node node = findNode(index);
 
         return node == null ? null : node.data; //Si node = null regresa null, sino regresa node.data
     }
 
-    public Iterator<T> getIterator() {
-        return new LinkedListIterator<>(head);
+    public Iterator getIterator() {
+        return new LinkedListIterator(head);
     }
 
     public int getSize() {
@@ -99,13 +99,13 @@ public class LinkedList <T> implements List <T> {
     }
 
     //Otros
-    private Node<T> findNode(int index) {
+    private Node findNode(int index) {
 
         if(index < 0 || index >= size){
             return null;
         }
 
-        Node<T> node = head;
+        Node node = head;
         int currentIndex = 0;
 
         while (currentIndex != index) { //Recorre todos

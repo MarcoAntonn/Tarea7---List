@@ -1,29 +1,25 @@
 package uaslp.objetos.list.arraylist;
 
-
-import uaslp.objetos.list.Iterator;
 import uaslp.objetos.list.List;
 
-//interface
-public class ArrayList <T> implements List<T> {
+public class ArrayList implements List {
 
     private static final int DEFAULT_SIZE = 2; //Esto es una declaración de constantes
-    private T[] array; //El array ya no es de String, es de T
+    private String[] array;
     private int size;
 
     //Sobrecarga (cuando no le pasan parámetros)
     public ArrayList(){
-        array = (T[])new Object[DEFAULT_SIZE]; //No se puede generar un arreglo de tipo genérico, por eso se pone (T[])new Object[] creo
-    }                       //Todas las clases de Java heredan de Object por eso todos los objetos de cualquier clase pueden ser asignador de tipo Object
+        array = new String[DEFAULT_SIZE];
+    }
 
     //Constructor
     public ArrayList(int size){
-        array = (T[])new Object[size];
+        array = new String[size];
     }
 
     //Adds
-    @Override //se les pone override a los que tienen el simbolo de que se están sobreescribiendo, esto como buena práctica
-    public  void addAtTail(T data){
+    public  void addAtTail(String data){
         if(size == array.length){ //Si el numero de datos validos y el tamaño del arreglo, entonces ya no cabe y se usa el metodo increaseArraySize
             increaseArraySize();
         }
@@ -32,8 +28,7 @@ public class ArrayList <T> implements List<T> {
         size++;
     }
 
-    @Override
-    public void addAtFront(T data){
+    public void addAtFront(String data){
         if(size == array.length){
             increaseArraySize();
         }
@@ -46,7 +41,6 @@ public class ArrayList <T> implements List<T> {
     }
 
     //Removes
-    @Override
     public void remove(int index){
         if(index < 0 || index >= size){
             return;
@@ -59,7 +53,6 @@ public class ArrayList <T> implements List<T> {
         size--;
     }
 
-    @Override
     public void removeAll(){
         for (int i = 0; i<size; i++){
             array[i] = null;
@@ -68,36 +61,32 @@ public class ArrayList <T> implements List<T> {
     }
 
     //Setters
-    @Override
-    public void setAt(int index, T data){
+    public void setAt(int index, String data){
         if(index >= 0 && index < size){
             array[index] = data;
         }
     }
 
     //Getters
-    @Override
-    public T getAt(int index){
+    public String getAt(int index){
         return index >= 0 && index < size ? array[index] : null; //Si index es mayor o igual a 0 y menor que size, entonces array[inndex] es igual a null
     }
 
-    @Override
     public int getSize(){
         return size;
     }
 
-    @Override
-    public Iterator<T> getIterator(){
-        return new ArrayListIterator<>(this); //aqui el ArrayListIterator cumple con el contrato de Iterator, es decir, tiene los métodos de Iterator
+    public ArrayListIterator getIterator(){
+        return new ArrayListIterator(this);
     }
 
-    public static String getName(){ //Aqui sigue regresando String
+    public static String getName(){
         return "ArrayList";
     }
 
     //Otros métodos
     private void increaseArraySize(){
-        T []newArray = (T[])new Object[array.length * 2];
+        String []newArray = new String[array.length * 2];
 
         for (int i = 0; i < size; i++){
             newArray[i] = array[i];
@@ -105,8 +94,3 @@ public class ArrayList <T> implements List<T> {
         array = newArray;
     }
 }
-
-
-
-//import uaslp.objetos.list.List;
-
