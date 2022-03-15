@@ -1,17 +1,24 @@
+//package uaslp.objetos.list;
+
+import uaslp.objetos.list.Iterator;
+import uaslp.objetos.list.List;
 import uaslp.objetos.list.arraylist.ArrayList;
 import uaslp.objetos.list.arraylist.ArrayListIterator;
 import uaslp.objetos.list.linkedlist.LinkedList;
-import uaslp.objetos.list.linkedlist.LinkedListIterator;
-
-import java.sql.SQLOutput;
 
 public class Main {
 
+    public static void main(String[] args){
+        System.out.println("\n\tPRUEBA ARRAYLIST");
+        metodo(new ArrayList<>(), new ArrayList<>(), new ArrayList<>()); //Al llamado del método se le llama firma
+        System.out.println("\n\tPRUEBA LINKEDLIST");
+        metodo(new LinkedList<>(), new LinkedList<>(), new LinkedList<>());
+    }
 
-    public static void main(String[] args) {
-        ArrayList team1 = new ArrayList();
-        ArrayList team2 = new ArrayList();
-        ArrayList team3 = new ArrayList();
+    public static void metodo(List<String> team1, List<String> team2, List<String> team3) {
+        //List<Alumno> doubles = new ArrayList<>(); //ahora se pueden crear listas de cualquier tipo, esto hace el generics
+
+        //No se puede crear una instancia de List, List list1=new List(); no se puede ya que la interfaz solo tiene métodos abstractos
 
         team1.addAtTail("Jesús");
         team1.addAtTail("Salomón");
@@ -23,24 +30,23 @@ public class Main {
 
         team3.addAtFront("Imelda");
 
-        ArrayListIterator iterator;
+        Iterator<String> iterator;
 
         iterator = team1.getIterator();
 
-        while (iterator.hasNext()) { //Mientras siga la lista
-            String name = iterator.next();
+        while (iterator.hasNext()){
+            String name = iterator.next(); //Aqui saláa un error que regresaba un object, esto pasa porque estaba usando el Iterador sin decirle de qué tipo era, es decir, en Iterator<String> iterator;.. solo tenía Iterator iterator;
             System.out.println(name);
         }
 
-        System.out.printf("\n");
-        // Debió haber impreso
-        // Jesús
-        // Salomón
-        // Yael
+        //Debió haber impreso
+        //Jesus
+        //Salomón
+        //Yael
 
         iterator = team2.getIterator();
 
-        while (iterator.hasNext()) {
+        while (iterator.hasNext()){
             String name = iterator.next();
             System.out.println(name);
         }
@@ -79,11 +85,10 @@ public class Main {
             System.out.println(name);
         }
 
-        System.out.printf("\n");
-        // Debió haber impreso
-        // Diego
-        // Daniel
-        // Rita
+        //Debió haber impreso
+        //Diego
+        //Daniel
+        //Rita
 
         team3.remove(0);
         team3.remove(0); // El elemento no existe pero el programa no debe cerrarse por algún error
@@ -127,4 +132,3 @@ public class Main {
 
     }
 }
-

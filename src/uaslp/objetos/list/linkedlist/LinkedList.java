@@ -1,14 +1,19 @@
 package uaslp.objetos.list.linkedlist;
 
-public class LinkedList {
 
-    private Node head;
-    private Node tail;
+import uaslp.objetos.list.Iterator;
+import uaslp.objetos.list.List;
+
+//Interface
+public class LinkedList <T> implements List <T> {
+
+    private Node<T> head;
+    private Node<T> tail;
     private int size;
 
     //Adds
-    public void addAtTail(String data) {
-        Node node = new Node(data);
+    public void addAtTail(T data) {
+        Node<T> node = new Node<>(data);//El <> es opcional, es una recomendacion del IDE, donde es necesario es en la declaración  Node<T> al inicio del renglon
 
         if (size == 0) {
             head = node;
@@ -21,8 +26,8 @@ public class LinkedList {
         size++;
     }
 
-    public void addAtFront(String data) {
-        Node node = new Node(data);
+    public void addAtFront(T data) {
+        Node<T> node = new Node(data);
 
         if (size == 0) {
             tail = node;
@@ -37,7 +42,7 @@ public class LinkedList {
 
     //Removes
     public void remove(int index) {
-        Node node = findNode(index);
+        Node<T> node = findNode(index);
 
         if(node == null){
             return;
@@ -70,23 +75,23 @@ public class LinkedList {
     }
 
     //Setters
-    public void setAt(int index, String data) {
-        Node node = findNode(index);
+    public void setAt(int index, T data) {
+        Node<T> node = findNode(index);
 
         if(node != null){
             node.data = data;
         }
     }
 
-   //Getters
-    public String getAt(int index) {
-        Node node = findNode(index);
+    //Getters
+    public T getAt(int index) {
+        Node<T> node = findNode(index);
 
         return node == null ? null : node.data; //Si node = null regresa null, sino regresa node.data
     }
 
-    public LinkedListIterator getIterator() {
-        return new LinkedListIterator(head);
+    public Iterator<T> getIterator() {
+        return new LinkedListIterator<>(head);
     }
 
     public int getSize() {
@@ -94,13 +99,13 @@ public class LinkedList {
     }
 
     //Otros
-    private Node findNode(int index) {
+    private Node<T> findNode(int index) {
 
         if(index < 0 || index >= size){
             return null;
         }
 
-        Node node = head;
+        Node<T> node = head;
         int currentIndex = 0;
 
         while (currentIndex != index) { //Recorre todos
