@@ -10,12 +10,12 @@ public class Main {
 
     public static void main(String[] args){
         System.out.println("\n\tPRUEBA ARRAYLIST");
-        metodo(new ArrayList(), new ArrayList(), new ArrayList()); //Al llamado del método se le llama firma
+        metodo(new ArrayList<>(), new ArrayList<>(), new ArrayList<>()); //Al llamado del método se le llama firma
         System.out.println("\n\tPRUEBA LINKEDLIST");
-        metodo(new LinkedList(), new LinkedList(), new LinkedList());
+        metodo(new LinkedList<>(), new LinkedList<>(), new LinkedList<>());
     }
 
-    public static void metodo(List team1, List team2, List team3) {
+    public static void metodo(List<String> team1, List<String> team2, List<String> team3) {
         //List<Alumno> doubles = new ArrayList<>(); //ahora se pueden crear listas de cualquier tipo, esto hace el generics
 
         //No se puede crear una instancia de List, List list1=new List(); no se puede ya que la interfaz solo tiene métodos abstractos
@@ -30,12 +30,12 @@ public class Main {
 
         team3.addAtFront("Imelda");
 
-        Iterator iterator;
+        Iterator<String> iterator;
 
         iterator = team1.getIterator();
 
         while (iterator.hasNext()){
-            String name = (String) iterator.next(); //Aqui saláa un error que regresaba un object, esto pasa porque estaba usando el Iterador sin decirle de qué tipo era, es decir, en Iterator<String> iterator;.. solo tenía Iterator iterator;
+            String name = iterator.next(); //Aqui saláa un error que regresaba un object, esto pasa porque estaba usando el Iterador sin decirle de qué tipo era, es decir, en Iterator<String> iterator;.. solo tenía Iterator iterator;
             System.out.println(name);
         }
 
@@ -47,7 +47,7 @@ public class Main {
         iterator = team2.getIterator();
 
         while (iterator.hasNext()){
-            String name = (String) iterator.next();
+            String name = iterator.next();
             System.out.println(name);
         }
 
@@ -64,7 +64,7 @@ public class Main {
         iterator = team1.getIterator();
 
         while (iterator.hasNext()) {
-            String name = (String) iterator.next();
+            String name = iterator.next();
             System.out.println(name);
         }
 
@@ -81,7 +81,7 @@ public class Main {
         iterator = team2.getIterator();
 
         while (iterator.hasNext()) {
-            String name = (String) iterator.next();
+            String name = iterator.next();
             System.out.println(name);
         }
 
@@ -101,7 +101,7 @@ public class Main {
         iterator = team3.getIterator();
 
         while (iterator.hasNext()) {
-            String name = (String) iterator.next();
+            String name = iterator.next();
             System.out.println(name);
         }
 
