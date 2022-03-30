@@ -4,21 +4,39 @@ import uaslp.objetos.list.Iterator;
 import uaslp.objetos.list.List;
 import uaslp.objetos.list.arraylist.ArrayList;
 import uaslp.objetos.list.arraylist.ArrayListIterator;
+import uaslp.objetos.list.exception.NotNullValuesAllowedException;
+import uaslp.objetos.list.exception.NotValidIndexException;
 import uaslp.objetos.list.linkedlist.LinkedList;
 
 public class Main {
 
     public static void main(String[] args){
         System.out.println("\n\tPRUEBA ARRAYLIST");
-        metodo(new ArrayList<>(), new ArrayList<>(), new ArrayList<>()); //Al llamado del método se le llama firma
+        try {
+            metodo(new ArrayList<>(), new ArrayList<>(), new ArrayList<>()); //Al llamado del método se le llama firma
+        }catch (NotValidIndexException e){
+            System.out.println("\n\tOcurrió un error: " + e.getMessage());
+            e.printStackTrace();
+        }catch (NotNullValuesAllowedException e){
+            System.out.println(e.getMessage());
+        }
         System.out.println("\n\tPRUEBA LINKEDLIST");
-        metodo(new LinkedList<>(), new LinkedList<>(), new LinkedList<>());
+        try {
+            metodo(new LinkedList<>(), new LinkedList<>(), new LinkedList<>());
+        }catch (NotValidIndexException e){
+            System.out.println("\n\tOcurrió un error: " + e.getMessage());
+        }catch (NotNullValuesAllowedException e){
+            System.out.println(e.getMessage());
+        }
     }
 
-    public static void metodo(List<String> team1, List<String> team2, List<String> team3) {
+    public static void metodo(List<String> team1, List<String> team2, List<String> team3) throws NotValidIndexException, NotNullValuesAllowedException {
         //List<Alumno> doubles = new ArrayList<>(); //ahora se pueden crear listas de cualquier tipo, esto hace el generics
 
         //No se puede crear una instancia de List, List list1=new List(); no se puede ya que la interfaz solo tiene métodos abstractos
+
+        //team1.remove(5);
+        team1.addAtTail(null);
 
         team1.addAtTail("Jesús");
         team1.addAtTail("Salomón");
@@ -57,7 +75,11 @@ public class Main {
         // Daniel
         // Cristian
 
-        team1.remove(0);
+        //try {
+            team1.remove(0);//si la LinkedList me manda una excepcion en el remove, yo en el catch voy a hacer algo
+        /*} catch (Exception exception){
+            System.out.println("\n\tNo se pudo eliminar: " + exception.getMessage());
+        }*/
         team1.addAtFront("Rebeca");
         System.out.println("Team 1 tiene: " + team1.getSize() + " integrantes"); // debe imprimir "Team 1 tiene 3 integrantes"
 

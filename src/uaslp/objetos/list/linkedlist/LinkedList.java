@@ -2,6 +2,8 @@ package uaslp.objetos.list.linkedlist;
 
 import uaslp.objetos.list.Iterator;
 import uaslp.objetos.list.List;
+import uaslp.objetos.list.exception.NotNullValuesAllowedException;
+import uaslp.objetos.list.exception.NotValidIndexException;
 
 //Interface
 public class LinkedList <T> implements List <T> {
@@ -11,7 +13,11 @@ public class LinkedList <T> implements List <T> {
     private int size;
 
     //Adds
-    public void addAtTail(T data) {
+    public void addAtTail(T data) throws NotNullValuesAllowedException{
+        if(data == null){
+            throw new NotNullValuesAllowedException();
+        }
+
         Node<T> node = new Node<>(data);//El <> es opcional, es una recomendacion del IDE, donde es necesario es en la declaración  Node<T> al inicio del renglon
 
         if (size == 0) {
@@ -25,7 +31,11 @@ public class LinkedList <T> implements List <T> {
         size++;
     }
 
-    public void addAtFront(T data) {
+    public void addAtFront(T data) throws NotNullValuesAllowedException{
+        if(data == null){
+            throw new NotNullValuesAllowedException();
+        }
+
         Node<T> node = new Node(data);
 
         if (size == 0) {
@@ -40,7 +50,7 @@ public class LinkedList <T> implements List <T> {
     }
 
     //Removes
-    public void remove(int index) {
+    public void remove(int index) throws NotValidIndexException{
         Node<T> node = findNode(index);
 
         if(node == null){
@@ -74,7 +84,11 @@ public class LinkedList <T> implements List <T> {
     }
 
     //Setters
-    public void setAt(int index, T data) {
+    public void setAt(int index, T data) throws NotValidIndexException, NotNullValuesAllowedException { //aqui se propaga la exception porque llama a findNode y ese método también lo hace
+        if(data == null){
+            throw new NotNullValuesAllowedException();
+        }
+
         Node<T> node = findNode(index);
 
         if(node != null){
@@ -83,7 +97,7 @@ public class LinkedList <T> implements List <T> {
     }
 
     //Getters
-    public T getAt(int index) {
+    public T getAt(int index) throws NotValidIndexException{
         Node<T> node = findNode(index);
 
         return node == null ? null : node.data; //Si node = null regresa null, sino regresa node.data
@@ -98,10 +112,10 @@ public class LinkedList <T> implements List <T> {
     }
 
     //Otros
-    private Node<T> findNode(int index) {
+    private Node<T> findNode(int index) throws NotValidIndexException{
 
         if(index < 0 || index >= size){
-            return null;
+            throw new NotValidIndexException(index); //throw recibe un parametro y recibe un objeto(por eso es new)
         }
 
         Node<T> node = head;
