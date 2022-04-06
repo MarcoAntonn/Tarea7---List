@@ -53,23 +53,23 @@ public class LinkedList <T> implements List <T> {
     public void remove(int index) throws NotValidIndexException{
         Node<T> node = findNode(index);
 
-        if(node == null){
+        /*if(node == null){ //lo eliminamos ya que en el test se identificó que esto estaba mal ya que node siempre sería diferente de null
             return;
-        }
+        }*/
 
         if(size == 1){
             head = null;
             tail = null;
         } else if(node == head){ //Si queremos comparar el contenido de un string usamos (str1.equals(str2))
             head = node.next;
-            if(head != null){
+            /*if(head != null){
                 head.previous = null;
-            }
+            }*/
         } else if(node == tail){ //Si queremos comparar el contenido de un string usamos (str1.equals(str2))
             tail = node.previous;
-            if(tail != null){
+            /*if(tail != null){
                 tail.next = null;
-            }
+            }*/
         } else {
             node.previous.next = node.next;
             node.next.previous = node.previous;
@@ -91,9 +91,9 @@ public class LinkedList <T> implements List <T> {
 
         Node<T> node = findNode(index);
 
-        if(node != null){
+        //if(node != null){
             node.data = data;
-        }
+        //}
     }
 
     //Getters
