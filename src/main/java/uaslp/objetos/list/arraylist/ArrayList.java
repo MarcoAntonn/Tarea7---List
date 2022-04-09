@@ -17,11 +17,11 @@ public class ArrayList <T> implements List<T> {
         array = (T[]) new Object[DEFAULT_SIZE]; //No se puede generar un arreglo de tipo genérico, por eso se pone (T[])new Object[] creo
     }                       //Todas las clases de Java heredan de Object por eso todos los objetos de cualquier clase pueden ser asignador de tipo Object
 
-    /*//Constructor
-    public ArrayList(int size){
+    //Constructor
+    /*public ArrayList(int size){
         array = (T[])new Object[size];
-    }
-*/
+    }*/
+
     //Adds
     @Override
     //se les pone override a los que tienen el simbolo de que se están sobreescribiendo, esto como buena práctica

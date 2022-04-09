@@ -10,7 +10,7 @@ public class   LinkedList <T> implements List <T> {
 
     private Node<T> head;
     private Node<T> tail;
-    private int size;
+    private int size;//para error seria size=1
 
     //Adds
     public void addAtTail(T data) throws NotNullValuesAllowedException{
