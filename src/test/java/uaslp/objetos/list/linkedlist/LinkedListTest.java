@@ -38,7 +38,7 @@ public class LinkedListTest {
     }
 
     @Test //esto dice que es un test
-    public void givenANewList_whenAddAtFrontAnElement_thenSizeIsOne() throws NotNullValuesAllowedException, NotValidIndexException {
+    public void givenANewList_whenAddAtFrontAnElement_thenSizeIsOne() throws NotNullValuesAllowedException {
         //Given:
         LinkedList<String> list = new LinkedList<>();
 
@@ -54,7 +54,7 @@ public class LinkedListTest {
     }
 
     @Test //esto dice que es un test
-    public void givenAListWithElement_whenAddAtFrontAnElement_thenSizeIsTwo() throws NotNullValuesAllowedException, NotValidIndexException {
+    public void givenAListWithElement_whenAddAtFrontAnElement_thenSizeIsTwo() throws NotNullValuesAllowedException {
         //Given:
         LinkedList<String> list = new LinkedList<>();
 
@@ -73,7 +73,7 @@ public class LinkedListTest {
     }
 
     @Test //esto dice que es un test
-    public void givenANewList_whenAddAtTailAnElement_thenSizeIsOne() throws NotNullValuesAllowedException, NotValidIndexException {
+    public void givenANewList_whenAddAtTailAnElement_thenSizeIsOne() throws NotNullValuesAllowedException {
         //Given:
         LinkedList<String> list = new LinkedList<>();
 
@@ -89,7 +89,7 @@ public class LinkedListTest {
     }
 
     @Test //esto dice que es un test
-    public void givenAListWithElement_whenAddAtTailAnElement_thenSizeIsTwo() throws NotNullValuesAllowedException, NotValidIndexException {
+    public void givenAListWithElement_whenAddAtTailAnElement_thenSizeIsTwo() throws NotNullValuesAllowedException {
         //Given:
         LinkedList<String> list = new LinkedList<>();
 
@@ -108,7 +108,7 @@ public class LinkedListTest {
     }
 
     @Test //esto dice que es un test
-    public void givenAListWithOneElement_whenRemove_thenSizeIsZero() throws NotValidIndexException, NotNullValuesAllowedException {
+    public void givenAListWithOneElement_whenRemove_thenSizeIsZero() throws NotNullValuesAllowedException {
         //Given
         LinkedList<String> list = new LinkedList<>();
 
@@ -124,7 +124,7 @@ public class LinkedListTest {
     }
 
     @Test //esto dice que es un test
-    public void givenAListWithTwoElements_whenRemoveIndex0_thenSizeIsOne() throws NotValidIndexException, NotNullValuesAllowedException {
+    public void givenAListWithTwoElements_whenRemoveIndex0_thenSizeIsOne() throws NotNullValuesAllowedException {
         //Given
         LinkedList<String> list = new LinkedList<>();
 
@@ -143,7 +143,7 @@ public class LinkedListTest {
 
     //Excepción
     @Test //esto dice que es un test
-    public void givenAListWithTwoElements_whenRemoveIndex3_thenNotValidIndexExceptionIsThrown() throws NotValidIndexException, NotNullValuesAllowedException {
+    public void givenAListWithTwoElements_whenRemoveIndex3_thenNotValidIndexExceptionIsThrown() throws NotNullValuesAllowedException {
         //Given
         LinkedList<String> list = new LinkedList<>();
 
@@ -158,7 +158,7 @@ public class LinkedListTest {
 
     //Excepción
     @Test //esto dice que es un test
-    public void givenAListWithTwoElements_whenAddAtFrontNullValue_thenNotNullValuesAllowedExceptionIsThrown() throws NotValidIndexException, NotNullValuesAllowedException {
+    public void givenAListWithTwoElements_whenAddAtFrontNullValue_thenNotNullValuesAllowedExceptionIsThrown() throws NotNullValuesAllowedException {
         //Given
         LinkedList<String> list = new LinkedList<>();
 
@@ -173,7 +173,7 @@ public class LinkedListTest {
 
     //Excepción
     @Test //esto dice que es un test
-    public void givenAListWithTwoElements_whenAddAtTailNullValue_thenNotNullValuesAllowedExceptionIsThrown() throws NotValidIndexException, NotNullValuesAllowedException {
+    public void givenAListWithTwoElements_whenAddAtTailNullValue_thenNotNullValuesAllowedExceptionIsThrown() throws NotNullValuesAllowedException {
         //Given
         LinkedList<String> list = new LinkedList<>();
 
@@ -188,7 +188,7 @@ public class LinkedListTest {
 
     //Excepción
     @Test //esto dice que es un test
-    public void givenAListWithTwoElements_whenSetAtNullValue_thenNotNullValuesAllowedExceptionIsThrown() throws NotValidIndexException, NotNullValuesAllowedException {
+    public void givenAListWithTwoElements_whenSetAtNullValue_thenNotNullValuesAllowedExceptionIsThrown() throws NotNullValuesAllowedException {
         //Given
         LinkedList<String> list = new LinkedList<>();
 
@@ -203,7 +203,7 @@ public class LinkedListTest {
 
     //Excepción
     @Test //esto dice que es un test
-    public void givenAListWithTwoElements_whenSetAtIndex3_thenNotValidIndexExceptionIsThrown() throws NotValidIndexException, NotNullValuesAllowedException {
+    public void givenAListWithTwoElements_whenSetAtIndex3_thenNotValidIndexExceptionIsThrown() throws NotNullValuesAllowedException {
         //Given
         LinkedList<String> list = new LinkedList<>();
 
@@ -217,7 +217,7 @@ public class LinkedListTest {
     }
 
     @Test //esto dice que es un test
-    public void givenAListWithTwoElements_whenRemoveIndex1_thenSizeIsOne() throws NotValidIndexException, NotNullValuesAllowedException {
+    public void givenAListWithTwoElements_whenRemoveIndex1_thenSizeIsOne() throws NotNullValuesAllowedException {
         //Given
         LinkedList<String> list = new LinkedList<>();
 
@@ -235,7 +235,7 @@ public class LinkedListTest {
     }
 
     @Test //esto dice que es un test
-    public void givenAListWith3Elements_whenRemoveElementAtTail_thenSizeIsTwo() throws NotValidIndexException, NotNullValuesAllowedException {
+    public void givenAListWith3Elements_whenRemoveElementAtTail_thenSizeIsTwo() throws NotNullValuesAllowedException {
         //Given
         LinkedList<String> list = new LinkedList<>();
 
@@ -255,7 +255,7 @@ public class LinkedListTest {
     }
 
     @Test //esto dice que es un test
-    public void givenAListWithThreeElements_whenRemoveIndex1_thenSizeIsTwo() throws NotValidIndexException, NotNullValuesAllowedException {
+    public void givenAListWithThreeElements_whenRemoveIndex1_thenSizeIsTwo() throws NotNullValuesAllowedException {
         //Given
         LinkedList<String> list = new LinkedList<>();
 
@@ -275,7 +275,7 @@ public class LinkedListTest {
     }
 
     @Test //esto dice que es un test
-    public void givenAListWithThreeElements_whenRemoveAll_thenSizeIsZero() throws NotValidIndexException, NotNullValuesAllowedException {
+    public void givenAListWithThreeElements_whenRemoveAll_thenSizeIsZero() throws NotNullValuesAllowedException {
         //Given
         LinkedList<String> list = new LinkedList<>();
 
@@ -293,7 +293,7 @@ public class LinkedListTest {
     }
 
     @Test //esto dice que es un test
-    public void givenAListWithTwoElements_whenSetAtZero_thenElementIsModified() throws NotValidIndexException, NotNullValuesAllowedException {
+    public void givenAListWithTwoElements_whenSetAtZero_thenElementIsModified() throws NotNullValuesAllowedException {
         //Given
         LinkedList<String> list = new LinkedList<>();
 
@@ -312,7 +312,7 @@ public class LinkedListTest {
     }
 
     @Test //esto dice que es un test
-    public void givenAListWith3Elements_whenSetIterator_thenIteratorWorksOverAllThreeElements() throws NotValidIndexException, NotNullValuesAllowedException {
+    public void givenAListWith3Elements_whenSetIterator_thenIteratorWorksOverAllThreeElements() throws NotNullValuesAllowedException {
         //Given
         LinkedList<String> list = new LinkedList<>();
 

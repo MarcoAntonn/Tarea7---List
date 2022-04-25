@@ -50,7 +50,7 @@ public class   LinkedList <T> implements List <T> {
     }
 
     //Removes
-    public void remove(int index) throws NotValidIndexException{
+    public void remove(int index){
         Node<T> node = findNode(index);
 
         /*if(node == null){ //lo eliminamos ya que en el test se identificó que esto estaba mal ya que node siempre sería diferente de null
@@ -84,7 +84,7 @@ public class   LinkedList <T> implements List <T> {
     }
 
     //Setters
-    public void setAt(int index, T data) throws NotValidIndexException, NotNullValuesAllowedException { //aqui se propaga la exception porque llama a findNode y ese método también lo hace
+    public void setAt(int index, T data) throws NotNullValuesAllowedException { //aqui se propaga la exception porque llama a findNode y ese método también lo hace
         if(data == null){
             throw new NotNullValuesAllowedException();
         }
@@ -97,7 +97,7 @@ public class   LinkedList <T> implements List <T> {
     }
 
     //Getters
-    public T getAt(int index) throws NotValidIndexException{
+    public T getAt(int index){
         Node<T> node = findNode(index);
 
         return node == null ? null : node.data; //Si node = null regresa null, sino regresa node.data
@@ -112,7 +112,7 @@ public class   LinkedList <T> implements List <T> {
     }
 
     //Otros
-    private Node<T> findNode(int index) throws NotValidIndexException{
+    private Node<T> findNode(int index) {
 
         if(index < 0 || index >= size){
             throw new NotValidIndexException(index); //throw recibe un parametro y recibe un objeto(por eso es new)
